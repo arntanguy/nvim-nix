@@ -248,6 +248,7 @@
         ai = with pkgs.vimPlugins; [
           copilot-lua
           blink-copilot
+          codecompanion-nvim
         ];
       };
 
