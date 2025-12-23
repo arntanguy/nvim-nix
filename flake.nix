@@ -47,7 +47,6 @@
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
-
   };
 
   # see :help nixCats.flake.outputs
@@ -246,6 +245,10 @@
             # pkgs.neovimPlugins.hlargs
           ];
         };
+        ai = with pkgs.vimPlugins; [
+          copilot-lua
+          blink-copilot
+        ];
       };
 
       # shared libraries to be added to LD_LIBRARY_PATH
@@ -358,6 +361,7 @@
         categories = {
           markdown = true;
           general = true;
+          ai = true;
           lint = true;
           format = true;
           neonixdev = true;

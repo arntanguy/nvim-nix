@@ -4,6 +4,7 @@ local load_w_after = function(name)
 end
 
 return {
+  dep = { "copilot.lua", "blink-copilot" },
   {
     "cmp-cmdline",
     for_cat = "general.blink",
@@ -37,6 +38,13 @@ return {
     "colorful-menu.nvim",
     for_cat = "general.blink",
     on_plugin = { "blink.cmp" },
+  },
+  {
+    "blink-copilot",
+    for_cat = "ai",
+    -- This tells lze: "When blink calls require('blink-copilot'), run packadd"
+    on_require = { "blink-copilot" },
+    load = function(name) vim.cmd("packadd " .. name) end,
   },
   {
     "blink.cmp",
@@ -113,7 +121,8 @@ return {
           end,
         },
         sources = {
-          default = { 'lsp', 'path', 'snippets', 'buffer', 'omni' },
+          -- default = { 'lsp', 'path', 'snippets', 'buffer', 'omni' },
+          default = { 'lsp', 'path', 'snippets', 'copilot', 'buffer', 'omni' },
           providers = {
             path = {
               score_offset = 50,
@@ -131,6 +140,13 @@ return {
               opts = {
                 cmp_name = 'cmdline',
               },
+            },
+            copilot = {
+              name = "copilot",
+              module = "blink-copilot",
+              max_completions = 3,
+              score_offset = 100,
+              async = true,
             },
           },
         },
