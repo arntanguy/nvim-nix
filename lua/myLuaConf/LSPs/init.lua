@@ -110,6 +110,25 @@ require('lze').load {
     },
   },
   {
+    "clangd",
+    for_cat = "c_cpp",
+    -- Enable clangd if you want it always, or add a condition here
+    enabled = true,
+    lsp = {
+      filetypes = { "c", "cpp" },
+      -- settings = {} -- Add clangd-specific settings here if needed
+    },
+  },
+  {
+    "pyright",
+    for_cat = "python",
+    enabled = true,
+    lsp = {
+      filetypes = { "python" },
+      -- settings = {} -- Add pyright-specific settings here if needed
+    },
+  },
+  {
     "nil_ls",
     -- mason doesn't have nixd
     enabled = not catUtils.isNixCats,

@@ -123,6 +123,12 @@
           go-tools
           gccgo
         ];
+        python = with pkgs; [
+          pyright
+        ];
+        c_cpp = with pkgs; [
+          clang-tools
+        ];
         # and easily check if they are included in lua
         format = with pkgs; [
         ];
@@ -364,6 +370,8 @@
           general = true;
           ai = true;
           lint = true;
+          c_cpp = true;
+          python = true;
           format = true;
           neonixdev = true;
           test = {
