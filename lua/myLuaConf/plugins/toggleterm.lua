@@ -70,11 +70,6 @@ return {
           set_terminal_keymaps()
         end,
       })
-
-      require('which-key').add {
-        { '<leader>t', group = '[T]erminal', icon = ""},
-        { '<leader>t_', hidden = true },
-      }
     end,
   },
 }
