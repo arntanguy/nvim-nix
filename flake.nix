@@ -228,6 +228,7 @@
             telescope-fzf-native-nvim
             telescope-ui-select-nvim
             telescope-nvim
+            project-nvim
           ];
           always = with pkgs.vimPlugins; [
             nvim-lspconfig

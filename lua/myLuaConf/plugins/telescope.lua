@@ -66,7 +66,8 @@ return {
     -- ft = "",
     keys = {
       { "<leader>sM", '<cmd>Telescope notify<CR>', mode = {"n"}, desc = '[S]earch [M]essage', },
-      { "<leader>sp",live_grep_git_root, mode = {"n"}, desc = '[S]earch git [P]roject root', },
+      { "<leader>sp", "<cmd>Telescope projects<CR>", desc = "[S]elect [P]roject" }, -- project.nvim
+      { "<leader>sG",live_grep_git_root, mode = {"n"}, desc = '[S]earch git [P]roject root', },
       { "<leader>/", function()
         -- Slightly advanced example of overriding default behavior and theme
         -- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -97,8 +98,23 @@ return {
         vim.cmd.packadd(name)
         vim.cmd.packadd("telescope-fzf-native.nvim")
         vim.cmd.packadd("telescope-ui-select.nvim")
+        vim.cmd.packadd("project.nvim")
     end,
     after = function (plugin)
+      require('project').setup{
+       -- Methods of detecting the root directory. **"lsp"** uses the native neovim
+       -- lsp, while **"pattern"** uses vim-rooter like glob pattern matching. Here
+       -- order matters: if one is not detected, the other is used as fallback. You
+       -- can also delete or rearangne the detection methods.
+       detection_methods = { "pattern" },
+
+       -- All the patterns used to detect root dir, when **"pattern"** is in
+       -- detection_methods
+       patterns = { ".git", ".devcontainer", "package.json" },
+
+       exclude_dirs = {"*/cmake"},
+       silent_chdir = false,
+      } --  setup project-nvim
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -119,6 +135,7 @@ return {
       -- Enable telescope extensions, if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'projects')
 
       vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
     end,
