@@ -170,6 +170,13 @@
               "catppuccin-mocha" = catppuccin-nvim;
               "tokyonight" = tokyonight-nvim;
               "tokyonight-day" = tokyonight-nvim;
+              "github_light" = github-nvim-theme;
+              "github_dark" = github-nvim-theme;
+              "github_dark_dimmed" = github-nvim-theme;
+              "github_dark_default" = github-nvim-theme;
+              "github_light_default" = github-nvim-theme;
+              "github_dark_high_contrast" = github-nvim-theme;
+              "github_light_hight_contrast" = github-nvim-theme;
             }
           );
           # This is obviously a fairly basic usecase for this, but still nice.
