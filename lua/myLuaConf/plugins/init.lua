@@ -65,6 +65,7 @@ end
 
 require('lze').load {
   { import = "myLuaConf.plugins.telescope", },
+  { import = "myLuaConf.plugins.toggleterm", },
   { import = "myLuaConf.plugins.treesitter", },
   { import = "myLuaConf.plugins.completion", },
   { import = "myLuaConf.plugins.copilot", },
