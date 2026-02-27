@@ -114,6 +114,11 @@ require('lze').load {
     for_cat = "c_cpp",
     -- Enable clangd if you want it always, or add a condition here
     enabled = true,
+    before = function(_)
+      vim.lsp.config('clangd', {
+        on_attach = require('myLuaConf.LSPs.on_attach'),
+      })
+    end,
     lsp = {
       filetypes = { "c", "cpp" },
       -- settings = {} -- Add clangd-specific settings here if needed
