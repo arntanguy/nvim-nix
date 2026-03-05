@@ -125,6 +125,15 @@ require('lze').load {
     },
   },
   {
+    "yamlls",
+    for_cat = "yaml",
+    -- Enable clangd if you want it always, or add a condition here
+    enabled = true,
+    lsp = {
+      filetypes = { "yaml" },
+    },
+  },
+  {
     "pyright",
     for_cat = "python",
     enabled = true,

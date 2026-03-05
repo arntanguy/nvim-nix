@@ -129,6 +129,9 @@
         c_cpp = with pkgs; [
           clang-tools
         ];
+        yaml = with pkgs; [
+          yaml-language-server
+        ];
         # and easily check if they are included in lua
         format = with pkgs; [
         ];
@@ -380,6 +383,7 @@
           ai = true;
           lint = true;
           c_cpp = true;
+          yaml = true;
           python = true;
           format = true;
           neonixdev = true;

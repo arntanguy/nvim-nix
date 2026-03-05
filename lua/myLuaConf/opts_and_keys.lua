@@ -28,6 +28,9 @@ vim.wo.number = true
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
+-- Enable execrc
+vim.o.exrc = true
+
 -- Indent
 -- vim.o.smarttab = true
 vim.opt.cpoptions:append('I')
